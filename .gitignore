@@ -1,0 +1,51 @@
+# 컴파일 된 소스 #
+# ##################
+* .com
+* .class
+* .dll
+* .exe
+* .o
+* .so
+
+# 패키지 #
+# ###########
+# 이러한 파일의 압축을 풀고 원시 소스를 커밋하는 것이 좋습니다.
+# git에는 자체적으로 내장 된 압축 방법이 있습니다.
+* .7z
+* .dmg
+* .gz
+* .iso
+* .jar
+* .rar
+* .tar
+* .zip
+
+# 로그 및 데이터베이스 #
+# #####################
+* .log
+* .sql
+* .sqlite
+
+# OS 생성 파일 #
+# #####################
+.DS_Store
+.DS_Store ?
+._ *
+.Spotlight-V100
+.fuseBox/
+ehthumbs.db
+Thumbs.db
+
+# env파일
+# #####################
+.env
+
+# cache파일
+# #####################
+.cache
+
+# uploads cache
+# #####################
+package-lock.json
+uploads
+static

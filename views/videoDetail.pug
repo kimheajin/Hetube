@@ -1,0 +1,16 @@
+extends layouts/main
+
+block content
+    .video__player 
+        //아래와 같이 ``를 하는 이유는 서버에 있는 파일이기 때문에 경로가 필요하기 때문이다.
+        video(src=`/${video.fileUrl}`)
+    .video__info 
+        a(href=routes.editVideo(video.id)) Edit Video
+        h5.video__title=video.title
+        span.video__view=video.view
+        p.video__description=video.description
+    .video__comments
+        if video.comments.length === 1
+            span.video__comment-number 1 comment 
+        else 
+            span.video__comment-number #{video.comments.length} comments
