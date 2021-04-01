@@ -1,0 +1,17 @@
+.videos {
+    .videoBlock {
+        margin: 50px 0px 0px 50px;
+        float: left;
+        a{
+            color: $dark-blue;
+            text-decoration: none;
+            video{
+                width: 359px;
+                height: 200px;
+            }
+        }
+        a:hover{
+            color: $cyan;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.footer{
+    float: left;
+    width: 100%;
+    .fab.fa-youtube {
+        float: left;
+        margin: 10px 10px 10px 10px;
+        font-size: 20px;
+        color:$dark-blue;
+    }
+    .footer-text{
+        float: left;
+        margin: 10px 0px;
+        a{
+            margin: 0px 10px;
+            float: left;
+        }
+        p{
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+main{
+    background-color: $background-cyan;
+    min-height: 700px;
+
+    .video__player{
+        video{
+            margin: 50px 50px 10px 50px;
+            min-width: 700px;
+            height: 500px;
+        }
+    }
+    .video__info{
+        margin: 20px 20px 20px 50px;
+        width: 50%;
+        a{
+            float: right;
+            text-decoration: none;
+            color: $dark-blue;
+        }
+        p{
+            margin: 30px 0px 0px 30px;
+        }
+    }
+    .video__comments{
+        margin: 50px 20px 20px 50px;
+    }
+}

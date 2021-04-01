@@ -15,7 +15,6 @@ export const home = async(req, res) => {
         // -1을 주는 것은 위 아래의 순서를 바꾸겠다는 약속 같은 것.
         const videos = await Video.find({}).sort({ _id: -1 });
         
-        // throw Error("error message");
         res.render('home', { pageTitle: 'Home', videos });
     } catch(error) {
         console.log(error);
@@ -44,10 +43,12 @@ export const search = async(req, res) => {
 export const getUpload = (req, res) => res.render('upload', { pageTitle: 'Upload' });
 export const postUpload = async(req, res) => {
     // multer에서 준 file path = 새로운 비디오 fileUrl 연결
+
     const { 
         body: { title, description }, 
         file: { path }, 
     } = req;
+    console.log(path);
     const newVideo = await Video.create({
         fileUrl: path,
         title,
@@ -75,8 +76,6 @@ export const getEditVideo = async(req, res) => {
         params: { id },
     } = req;
 
-    // const video = await Video.findById(id);
-    console.log(Video.findById(id));
     try{
         const video = await Video.findById(id);
         res.render('editVideo', { pageTitle: `Edit ${video.title}`, video });
