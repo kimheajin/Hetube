@@ -8,6 +8,10 @@ block content
         a(href=routes.editVideo(video.id)) Edit Video
         h3.video__title=video.title
         span.video__view=video.view
+        if video.views === 1 
+            span.video__views 1 view
+        else 
+            span.video__views #{video.view} views
         p.video__description=video.description
     .video__comments
         if video.comments.length === 1

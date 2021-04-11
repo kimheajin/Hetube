@@ -19,10 +19,6 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(js)$/,
-                use: ['babel-loader'],
-            },
-            {
                 test: /\.(scss)$/,
                 use: [
                     MiniCssExtractPlugin.loader,

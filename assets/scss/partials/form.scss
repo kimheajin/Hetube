@@ -1,0 +1,16 @@
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+        width: 100%;
+        max-width: 400px;
+        input, label{
+            &:not(:last-child){
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
