@@ -1,11 +1,13 @@
 .social-login
+    - var img = "/static/assets/img/kakaotalk.png"
     button.social-login--github
         a(href=`${routes.Github}`)
             span
                 i.fab.fa-github
             |Continue with Github
-    button.social-login--facebook
-        span
-            i.fab.fa-facebook
-        |Continue with Github
+    button.social-login--kakao
+        a(href=`${routes.Kakao}`)
+            span
+                img(src=img, alt="" width="10")
+            |Continue with Kakao
     

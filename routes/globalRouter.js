@@ -1,7 +1,16 @@
 import express from 'express';
 import passport from "passport";
 import {
-    getJoin, getLogin, postJoin, logout, postLogin, githubLogin, postGithubLogin
+    getJoin, 
+    getLogin, 
+    postJoin, 
+    logout, 
+    postLogin, 
+    githubLogin, 
+    postGithubLogin,
+    getMe, 
+    KakaoLogin, 
+    postKakaoLogin
 } from '../controllers/userController';
 import { home, search } from '../controllers/videoController';
 import { onlyPrivate, onlyPublic } from '../middlewares';
@@ -33,5 +42,14 @@ globalRouter.get(
     passport.authenticate('github', { failureRedirect: '/login' }),
     postGithubLogin
 );
+
+globalRouter.get(routes.Kakao, KakaoLogin);
+globalRouter.get(
+    routes.KakaoCallback, 
+    passport.authenticate('kakao', {failureRedirect: '/login'}),
+    postKakaoLogin
+);
+
+globalRouter.get(routes.me, getMe);
 
 export default globalRouter;

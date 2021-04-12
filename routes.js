@@ -9,9 +9,10 @@ const SEARCH = '/search';
 
 // Users
 const USERS = '/users';
+const USER_DETAIL = '/:id';
 const EDIT_PROFILE = '/edit-profile';
 const CHANGE_PASSWORD = '/change-password';
-const USER_DETAIL = '/:id';
+const ME = "/me";
 
 // video
 const VIDEOS = '/videos';
@@ -24,6 +25,12 @@ const DELETE_VIDEO = '/:id/delete';
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
+//KakaoTalk
+// auth/kakao로 로그인 요청
+const KAKAO = "/oauth/kakao";
+// auth/kakao/callback으로 프로필 반환
+const KAKAO_CALLBACK = "/oauth/kakao/callback";
+
 const routes = {
     home: HOME,
     join: JOIN,
@@ -31,7 +38,7 @@ const routes = {
     logout: LOGOUT,
     search: SEARCH,
     users: USERS,
-    userDetail: (id) => {
+    userDetail: id => {
         if(id) {
             return `/users/${id}`;
         }
@@ -60,7 +67,10 @@ const routes = {
         return DELETE_VIDEO;
     },
     Github: GITHUB,
-    GithubCallback: GITHUB_CALLBACK
+    GithubCallback: GITHUB_CALLBACK,
+    me: ME,
+    Kakao: KAKAO,
+    KakaoCallback: KAKAO_CALLBACK
 };
 
 export default routes;

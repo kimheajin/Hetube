@@ -42,6 +42,13 @@ const config = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                },
+            }
         ],
     },
     plugins: [

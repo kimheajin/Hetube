@@ -6,8 +6,8 @@ const UserSchema = new mongoose.Schema({
     email: String,
     // avataURL은 fileURL과 같이 동작
     avatarUrl: String,
-    facebookId: Number,
-    githubId: Number
+    githubId: Number,
+    kakaoId: Number
 });
 
 // passportLocalMongoose가 체크를 하는 역할을 대신해준다.
