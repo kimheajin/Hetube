@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema({
 // passportLocalMongoose가 체크를 하는 역할을 대신해준다.
 UserSchema.plugin(passportLocalMongoose, {usernameField: "email"});
 
-
 const model = mongoose.model("User", UserSchema);
 
 export default model;

@@ -48,21 +48,19 @@ export const githubLogin = passport.authenticate('github');
 
 export const githubLoginCallback = async(_, __, profile, cb) => {
     const {
-        _json: {id, avatarUrl, name, email }
+        _json: { id, avatar_url: avatarUrl, login:name }
     } = profile;
-    
     try{
-        const user = await User.findOne({email});
+        const user = await User.findOne({id});
         if(user){
             user.githubId = id;
             user.save();
             return cb(null, user);
         }
         const newUser = await User.create({
-            email,
-            name,
+            name: profile._json.login,
             githubId: id,
-            avatarUrl,
+            avatarUrl: profile._json.avatar_url,
 
         });
         return cb(null, newUser);
@@ -80,28 +78,24 @@ export const KakaoLogin = passport.authenticate('kakao');
 // /oauth/kakao/callback으로 프로필 반환
 export const kakaoLoginCallback = async(_, __, profile, done) => {
     
-    console.log(routes.Kakao);
     const {
         id,
         username: name,
         _json: {
-          properties: { profile_image },
-          kakao_account: { email },
+          properties: { profile_image }
         },
     } = profile;
-    console.log(profile);
     try{
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ id });
         if(user){
             user.kakaoId = id;
             user.save();
             return done(null, user);
         }else {
             const newUser = await User.create({
-                email,
-                name,
+                name: profile.username,
                 kakaoId: id,
-                avartarUrl: profile_image,
+                avatarUrl: profile._json.properties.profile_image,
             });
             return done(null, newUser);
         }
