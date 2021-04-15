@@ -29,6 +29,10 @@ const VideoSchema = new mongoose.Schema({
             ref: 'Comment',
         },
     ],
+    creator: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 });
 
 // VideoSchema라는 변수를 mongoose의 model에 담으며, model이라는 변수를 export한다.

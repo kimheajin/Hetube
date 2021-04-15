@@ -1,6 +1,3 @@
 import '../scss/styles.scss';
+import './videoPlayer';
 import '../img/kakaotalk.png';
-
-const something = async () =>{
-    console.log('something');
-}

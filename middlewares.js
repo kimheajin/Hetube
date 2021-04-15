@@ -2,6 +2,7 @@ import multer from 'multer';
 import routes from './routes';
 
 const multerVideo = multer({ dest: 'uploads/videos/' });
+const multerAvatar = multer({ dest: 'uploads/avatars/' });
 
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = 'WeTube';
@@ -29,6 +30,7 @@ export const onlyPrivate = (req, res, next) =>{
 
 export const uploadVideo = multerVideo.single('videoFile');
 // local변수에 접근하기 위해 localsmiddleware를 사용한다.
+export const uploadAvatar = multerAvatar.single('avatar');
 
 
 // multer : function을 넣으면 URL을 반환해준다.

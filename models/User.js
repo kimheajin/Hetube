@@ -7,7 +7,19 @@ const UserSchema = new mongoose.Schema({
     // avataURL은 fileURL과 같이 동작
     avatarUrl: String,
     githubId: Number,
-    kakaoId: Number
+    kakaoId: Number,
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment',
+        },
+    ],
+    videos: [
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Video"
+        }
+    ]
 });
 
 // passportLocalMongoose가 체크를 하는 역할을 대신해준다.

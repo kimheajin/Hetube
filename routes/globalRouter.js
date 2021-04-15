@@ -22,12 +22,12 @@ const globalRouter = express.Router();
 globalRouter.get(routes.join, onlyPublic, getJoin);
 globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
 
-globalRouter.get(routes.login, getLogin);
-globalRouter.post(routes.login, postLogin);
+globalRouter.get(routes.login, onlyPublic, getLogin);
+globalRouter.post(routes.login, onlyPublic, postLogin);
 
-globalRouter.get(routes.logout, onlyPrivate, logout);
 globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
+globalRouter.get(routes.logout, onlyPrivate, logout);
 
 // 누군가 auth/github으로 들어와 인증을 요구할 시 githubLogin을 써서 인증을 한다.
 // 아래의 인증이 완료되면 passport.js에 정의한 callbackURL로 돌아가게 된다.
@@ -43,6 +43,8 @@ globalRouter.get(
     postGithubLogin
 );
 
+globalRouter.get(routes.me, getMe);
+
 globalRouter.get(routes.Kakao, KakaoLogin);
 globalRouter.get(
     routes.KakaoCallback, 
@@ -50,6 +52,5 @@ globalRouter.get(
     postKakaoLogin
 );
 
-globalRouter.get(routes.me, getMe);
 
 export default globalRouter;
